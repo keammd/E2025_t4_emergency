@@ -9,6 +9,20 @@
 .info-graphic {
   border-radius: 0;
   margin: 60px auto 80px auto;
+
+  /* PEUJ TIL KORT */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  svg {
+    grid-column: span 4;
+
+    .selected {
+      fill: white;
+    }
+  }
+
+  /* PEUJ TIL KORT */
 }
 .info-text h2 {
   line-height: 3rem;
