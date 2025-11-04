@@ -19,6 +19,9 @@
 
     .selected {
       fill: white;
+      transform: scale(1.2);
+      transform-box: fill-box;
+      transform-origin: 50% 50%;
     }
   }
 
