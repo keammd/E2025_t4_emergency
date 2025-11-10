@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 140" role="img" aria-labelledby="title desc"
+     style="--hug:#FF2E63; --storm:#1F3A93; --bolt:#FFC400;">
+  <title id="title">hugStorm logotype</title>
+  <desc id="desc">Ordet “hug” i én farve, “Storm” i en anden, adskilt af et lille lyn-ikon.</desc>
+
+  <!-- Valgfri baggrund: slå til ved at fjerne display:none -->
+  <rect x="0" y="0" width="520" height="140" rx="16" ry="16" fill="white" opacity="0" style="display:none"/>
+
+  <!-- Tekst: brug systemvenlige skrifter; tilpas efter din style guide -->
+  <g font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+     font-kerning="normal" letter-spacing="0.5px">
+
+    <!-- 'hug' -->
+    <text x="20" y="92" font-weight="800" font-size="84" fill="var(--hug)">hug</text>
+
+    <!-- Lyn-ikon mellem ordene -->
+    <g transform="translate(215,30) scale(1.1)">
+      <path d="M24 0 L0 48 L18 48 L10 86 L40 36 L22 36 Z" fill="var(--bolt)"/>
+    </g>
+
+    <!-- 'Storm' -->
+    <text x="260" y="92" font-weight="800" font-size="84" fill="var(--storm)">
+      Storm
+    </text>
+  </g>
+
+  <!-- Nem “outline” til mørke baggrunde: slå til ved at fjerne display:none -->
+  <g style="display:none" fill="none" stroke="white" stroke-width="8" stroke-linejoin="round" opacity="0.9">
+    <text x="20" y="92" font-weight="800" font-size="84">hug</text>
+    <path d="M239 30 L215 78 L233 78 L225 116 L255 66 L237 66 Z"/>
+    <text x="260" y="92" font-weight="800" font-size="84">Storm</text>
+  </g>
+</svg>
