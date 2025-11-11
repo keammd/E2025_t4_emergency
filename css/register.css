@@ -1,0 +1,109 @@
+/* ====== STIL SOM I CODEPEN ====== */
+/* Generelle styles */
+input,
+select,
+textarea {
+  border: 1px solid #ccc;
+  padding: 0.25rlh;
+  border-radius: 6px;
+  box-shadow: 0 1px 2px #0001;
+  font: inherit;
+}
+button {
+  border: 1px solid #000;
+  background: #000;
+  color: #fff;
+  border-radius: 6px;
+  padding: 0.25rlh 0.5rlh;
+  cursor: pointer;
+}
+button:hover {
+  background: #222;
+}
+button:active {
+  scale: 0.98;
+}
+
+/* Form layout */
+form {
+  display: grid;
+  gap: 1rlh;
+  padding: 1rlh;
+  max-width: 720px;
+  margin: 2rlh auto;
+}
+.form-group {
+  display: grid;
+  gap: 0.1rlh;
+}
+label:has(input),
+label:has(select),
+label:has(textarea) {
+  display: flex;
+  align-items: center;
+  gap: 0.25rlh;
+  justify-self: start;
+}
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.75rlh;
+}
+legend {
+  font-weight: 700;
+  margin-bottom: 0.25rlh;
+}
+
+/* A11y */
+:focus-visible {
+  outline: 2px solid slateblue;
+  outline-offset: 1px;
+}
+
+/* Fejlvisning – som i pennen */
+.error-message {
+  color: darkred;
+  display: none;
+}
+.form-group:has(:required) > label:first-of-type::after {
+  content: " *";
+  color: red;
+}
+.form-group:has(:user-invalid) input,
+.form-group:has(:user-invalid) select,
+.form-group:has(:user-invalid) textarea {
+  outline: 3px solid #f005;
+  border-color: darkred;
+}
+.form-group:has(:user-invalid) .error-message {
+  display: block;
+}
+
+/* Hjælpetekster */
+.hint {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Små helpers */
+.inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rlh;
+  margin-right: 1rlh;
+}
+.row {
+  display: grid;
+  gap: 0.5rlh;
+}
+.cols {
+  display: grid;
+  gap: 1rlh;
+}
+@media (min-width: 680px) {
+  .cols {
+    grid-template-columns: 1fr 1fr;
+  }
+}

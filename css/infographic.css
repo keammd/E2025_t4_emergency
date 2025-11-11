@@ -9,6 +9,22 @@
 .info-graphic {
   border-radius: 0;
   margin: 60px auto 80px auto;
+  /* PEUJ TIL KORT */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  svg {
+    grid-column: span 4;
+
+    .selected {
+      fill: white;
+      transform: scale(1.2);
+      transform-box: fill-box;
+      transform-origin: 50% 50%;
+    }
+  }
+
+  /* PEUJ TIL KORT */
 }
 .info-text h2 {
   line-height: 3rem;

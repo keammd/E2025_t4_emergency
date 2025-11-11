@@ -1,80 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/custom.css" />
-    <link rel="stylesheet" href="css/fonts.css" />
-    <link rel="stylesheet" href="css/general.css" />
-    <link rel="stylesheet" href="css/layout.css" />
-    <link rel="stylesheet" href="css/burger.css" />
-    <link rel="stylesheet" href="css/cards.css" />
-    <link rel="stylesheet" href="css/form.css" />
-    <link rel="icon" type="image/png" href="img/fav.png" />
-    <title>Emergency Site</title>
-  </head>
-  <body id="register">
-    <header>
-      <nav>
-        <div id="logotype-wrapper" class="logo">
-          <a href="index.html"> LOGO-TYPE </a>
-        </div>
-        <ul class="menu">
-          <li><a class="menuItem" href="instruction.html">Nærkontakt </a></li>
-          <li><a class="menuItem" href="register.html">Indberet</a></li>
-        </ul>
-        <button class="burger">
-          <span class="line"></span>
-          <span class="line"></span>
-          <span class="line"></span>
-        </button>
-      </nav>
-    </header>
 
-    <main>
-      <h1>INDBERET</h1>
-      <section id="form-section">
-        <article id="form-info">
-          <h2>Overskrift</h2>
-          <p>Tekst</p>
-        </article>
-        <form id="webform"></form>
-      </section>
-      <section id="form-summary">
-        <h2>Summary</h2>
-        <article>
-          <p class="placeholder">Opsummering</p>
-        </article>
-      </section>
-    </main>
-    <footer>
-      <nav class="some">
-        <ul>
-          <li><a href="">link</a></li>
-          <li><a href="">link</a></li>
-          <li><a href="">link</a></li>
-          <li><a href="">link</a></li>
-        </ul>
-      </nav>
-      <nav class="another">
-        <ul>
-          <li><a href="">link</a></li>
-          <li><a href="">link</a></li>
-          <li><a href="">link</a></li>
-          <li><a href="">link</a></li>
-        </ul>
-      </nav>
-      <nav class="yetanother">
-        <ul>
-          <li><a href="">link</a></li>
-          <li><a href="">link</a></li>
-          <li><a href="">link</a></li>
-          <li><a href="">link</a></li>
-        </ul>
-      </nav>
-    </footer>
-    <script src="js/burger.js"></script>
-    <!-- <script src="js/main.js"></script> -->
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/custom.css" />
+  <link rel="stylesheet" href="css/fonts.css" />
+  <link rel="stylesheet" href="css/general.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/burger.css" />
+  <link rel="stylesheet" href="css/cards.css" />
+  <link rel="stylesheet" href="css/forms.css" />
+  <link rel="stylesheet" href="css/register.css">
+  <link rel="icon" type="image/png" href="img/fav.png" />
+  <title>Emergency Site</title>
+</head>
+
+<body id="register">
+  <header>
+    <nav>
+      <div id="logotype-wrapper" class="logo">
+        <a href="index.html"> LOGO-TYPE </a>
+      </div>
+      <ul class="menu">
+        <li><a class="menuItem" href="instruction.html">Nærkontakt </a></li>
+        <li><a class="menuItem" href="register.html">Indberet</a></li>
+      </ul>
+      <button class="burger">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <h1>INDBERET</h1>
+    <section id="form-section">
+      <article id="form-info">
+        <h2>Overskrift</h2>
+        <p>Tekst</p>
+      </article>
+      <form id="webform">
+        <!-- Område -->
+        <div class="row">
+          <label for="area">Område (fremhævet på kortet) *</label>
+          <select id="area" name="area" required aria-describedby="area-hint area-error">
+            <option value="" selected disabled>Vælg område</option>
+            <option>Nørrebro</option>
+            <option>Amager</option>
+            <option>Frederiksberg</option>
+          </select>
+          <div class="hint" id="area-hint">Brug områderne der er markeret på kortet.</div>
+          <div class="error" id="area-error" role="alert" hidden>Vælg et område.</div>
+        </div>
+
+        <!-- Tidspunkt -->
+        <div class="row">
+          <label for="datetime">Tidspunkt for hændelse *</label>
+          <input id="datetime" name="datetime" type="datetime-local" required
+            aria-describedby="datetime-hint datetime-error" />
+          <div class="hint" id="datetime-hint">Dato og klokkeslæt for observationen.</div>
+          <div class="error" id="datetime-error" role="alert" hidden>Angiv dato og tidspunkt.</div>
+        </div>
+
+        <!-- Gade m. datalist -->
+        <div class="row">
+          <label for="street">Nærmeste gade</label>
+          <input id="street" name="street" list="streets" aria-describedby="street-hint"
+            placeholder="Skriv eller vælg" />
+          <datalist id="streets">
+            <option>Nørrebrogade</option>
+            <option>Amagerbrogade</option>
+            <option>Gammel Kongevej</option>
+            <option>Falkoner Allé</option>
+            <option>Islands Brygge</option>
+          </datalist>
+          <div class="hint" id="street-hint">Forslag vises under feltet – skriv frit, hvis gaden mangler.</div>
+        </div>
+
+        <!-- Eksponering (gruppér med fieldset+legend og beskriv med aria-describedby) -->
+        <fieldset aria-describedby="exposure-hint exposure-error">
+          <legend>Eksponering (vælg mindst én) *</legend>
+          <div class="hint" id="exposure-hint">Fx deltagelse i J-dag, kram med fremmede, metro mv.</div>
+          <div class="row" role="group" aria-label="Eksponeringstyper">
+            <label class="inline"><input type="checkbox" name="exposure" value="jdag"> Deltog i J-dag</label>
+            <label class="inline"><input type="checkbox" name="exposure" value="hug"> Kram med fremmede</label>
+            <label class="inline"><input type="checkbox" name="exposure" value="metro"> Rejst i metro/bus</label>
+            <label class="inline"><input type="checkbox" name="exposure" value="snow"> Kontakt med gul sne</label>
+            <label class="inline"><input type="checkbox" name="exposure" value="surface"> Berørt fælles
+              overflader</label>
+          </div>
+          <div class="error" id="exposure-error" role="alert" hidden>Vælg mindst én eksponering.</div>
+        </fieldset>
+
+        <!-- Sliders med output + beskrivelse -->
+        <div class="row">
+          <label id="hug-label" for="hugLevel">Krammetrængsel</label>
+          <input id="hugLevel" name="hugLevel" type="range" min="0" max="10" step="1" value="5"
+            aria-labelledby="hug-label" aria-describedby="hug-hint hug-error" />
+          <output id="hugOut" for="hugLevel" aria-live="polite">5</output>/10
+          <meter id="hugMeter" min="0" low="3" high="7" max="10" value="5" aria-label="Krammetrængsel-meter"></meter>
+          <div class="hint" id="hug-hint">0 = ingen trang, 10 = ukontrollabel krammetrængsel.</div>
+          <div class="error" id="hug-error" role="alert" hidden></div>
+        </div>
+
+        <div class="row">
+          <label id="snow-label" for="snowLevel">Sne-gulhedsgrad</label>
+          <input id="snowLevel" name="snowLevel" type="range" min="0" max="100" step="5" value="40"
+            aria-labelledby="snow-label" aria-describedby="snow-hint snow-error" />
+          <output id="snowOut" for="snowLevel" aria-live="polite">40</output>%
+          <progress id="snowProgress" max="100" value="40" aria-label="Gul sne progress"></progress>
+          <div class="hint" id="snow-hint">0% = hvid sne, 100% = meget gul/forurenet.</div>
+          <div class="error" id="snow-error" role="alert" hidden></div>
+        </div>
+
+        <!-- Samtykke -->
+        <fieldset aria-describedby="consent-hint consent-error">
+          <legend>Samtykke *</legend>
+          <label class="inline">
+            <input type="checkbox" id="consent" name="consent" required aria-describedby="consent-hint consent-error" />
+            Jeg giver samtykke til, at oplysningerne bruges til beredskab og statistik.
+          </label>
+          <div class="hint" id="consent-hint">Data bruges kun til håndtering og analyse af nødsituationen.</div>
+          <div class="error" id="consent-error" role="alert" hidden>Samtykke er påkrævet.</div>
+        </fieldset>
+
+        <button>submit</button>
+
+      </form>
+    </section>
+    <section id="form-summary">
+      <h2>Summary</h2>
+      <article>
+        <p class="placeholder">Opsummering</p>
+        <span id="output"></span>
+      </article>
+    </section>
+  </main>
+  <footer>
+    <nav class="some">
+      <ul>
+        <li><a href="">link</a></li>
+        <li><a href="">link</a></li>
+        <li><a href="">link</a></li>
+        <li><a href="">link</a></li>
+      </ul>
+    </nav>
+    <nav class="another">
+      <ul>
+        <li><a href="">link</a></li>
+        <li><a href="">link</a></li>
+        <li><a href="">link</a></li>
+        <li><a href="">link</a></li>
+      </ul>
+    </nav>
+    <nav class="yetanother">
+      <ul>
+        <li><a href="">link</a></li>
+        <li><a href="">link</a></li>
+        <li><a href="">link</a></li>
+        <li><a href="">link</a></li>
+      </ul>
+    </nav>
+  </footer>
+  <script src="js/burger.js"></script>
+  <!-- <script src="js/main.js"></script> -->
+  <script src="js/register.js"></script>
+</body>
+
 </html>
